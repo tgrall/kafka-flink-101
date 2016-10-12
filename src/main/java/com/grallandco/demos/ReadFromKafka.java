@@ -42,7 +42,7 @@ public class ReadFromKafka {
     DataStream<String> stream = env
             .addSource(new FlinkKafkaConsumer09<>("flink-demo", new SimpleStringSchema(), properties));
 
-    stream.rebalance().map(new MapFunction<String, String>() {
+    stream.map(new MapFunction<String, String>() {
       private static final long serialVersionUID = -6867736771747690202L;
 
       @Override
